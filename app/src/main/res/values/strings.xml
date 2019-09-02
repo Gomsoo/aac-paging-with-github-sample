@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AACPagingWithGithubSample</string>
+
+    <string name="main_network_only_button_text">Network only</string>
+
+    <string name="repositories_title">Repositories</string>
+    <string name="main_network_and_database_button_text">Network and Database</string>
 </resources>

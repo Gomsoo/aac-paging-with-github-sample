@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.repositories.RepositoriesActivity"
+            android:name=".ui.repositories.GithubReposActivity"
             android:label="@string/repositories_title"
             android:theme="@style/AppTheme" />
     </application>
