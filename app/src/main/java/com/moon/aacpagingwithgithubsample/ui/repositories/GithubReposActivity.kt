@@ -42,6 +42,7 @@ class GithubReposActivity : AppCompatActivity() {
 
     private fun initializeViewModel() {
         val viewModelFactory = Injector.provideRepositoriesViewModelFactory(
+            this,
             intent.getIntExtra(EXTRA_PAGING_TYPE, GithubReposRepository.NETWORK_AND_DATABASE)
         )
         viewModel =
