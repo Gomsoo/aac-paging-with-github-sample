@@ -10,7 +10,7 @@ import io.reactivex.Flowable
 class GithubReposViewModel(repository: GithubReposRepository) : ViewModel() {
 
     private val listing = repository.getRepos(PAGE_SIZE)
-    val repositories: Flowable<PagedList<GithubRepo>> = listing.items
+    val items: Flowable<PagedList<GithubRepo>> = listing.items
     val loadingInitial: Flowable<Boolean> = listing.loadingInitial
     val loadingAfter: Flowable<Boolean> = listing.loadingAfter
 

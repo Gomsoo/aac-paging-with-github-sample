@@ -48,7 +48,7 @@ class GithubReposActivity : AppCompatActivity() {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory).get(GithubReposViewModel::class.java)
                 .apply {
-                    repositories.observeOnUI()
+                    items.observeOnUI()
                         .subscribeBy(onNext = ::submitItems, onError = {
                             // handle error
                         })
