@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProviders
-import androidx.paging.PagedList
 import com.moon.aacpagingwithgithubsample.EXTRA_PAGING_TYPE
 import com.moon.aacpagingwithgithubsample.Injector
 import com.moon.aacpagingwithgithubsample.R
 import com.moon.aacpagingwithgithubsample.data.repository.GithubReposRepository
-import com.moon.aacpagingwithgithubsample.data.vo.GithubRepo
 import com.moon.aacpagingwithgithubsample.extensions.observeOnUI
 import com.moon.aacpagingwithgithubsample.extensions.setIndeterminateColor
 import io.reactivex.disposables.CompositeDisposable
@@ -49,7 +47,7 @@ class GithubReposActivity : AppCompatActivity() {
             ViewModelProviders.of(this, viewModelFactory).get(GithubReposViewModel::class.java)
                 .apply {
                     items.observeOnUI()
-                        .subscribeBy(onNext = ::submitItems, onError = {
+                        .subscribeBy(onNext = adapter::submitList, onError = {
                             // handle error
                         })
                         .addTo(disposables)
@@ -83,9 +81,5 @@ class GithubReposActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun submitItems(items: PagedList<GithubRepo>) {
-        adapter.submitList(items)
     }
 }
